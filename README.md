@@ -12,28 +12,30 @@ Tech Stack
     3. MongoDB
     4. Mongoose
     5. dotenv
-├── backend/
-│   ├── config/
-│   │   ├── db.js
-│   │   └── env.js
-│   ├── controller/
-│   │   └── templateController.js
-│   ├── models/
-│   │   └── Template.js
-│   ├── routes/
-│   │   └── templates.js
-│   ├── server.js
-│   └── app.js
-│
-└── Frontend/
-    ├── src/
-    │   ├── components/
-    │   │   ├── TemplateForm.jsx
-    │   │   └── Preview.jsx
-    │   ├── services/
-    │   │   └── api.js
-    │   ├── App.jsx
-    │   └── main.jsx
+  
+Folder Structure
+ backend/
+   config/
+     db.js
+     env.js
+  controller/
+     templateController.js
+  models/
+    Template.js
+  routes/
+    templates.js
+  server.js
+  app.js
+
+Frontend/
+  src/
+    components/
+      TemplateForm.jsx
+      Preview.jsx
+    services/
+      api.js
+    App.jsx
+    main.jsx
 
 Features
 1. Create Email Templates
