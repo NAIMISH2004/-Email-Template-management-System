@@ -10,50 +10,39 @@ export default function Preview({ id }) {
     try {
       setError("");
 
-      const res = await API.post(`/${id}/render`, {
-        email: "test@gmail.com"
-      });
+      const res = await API.post(`/${id}/render`);
 
       setSubject(res.data.subject);
       setBody(res.data.body);
-
     } catch (err) {
       console.error(err);
 
-      setError(
-        err.response?.data?.message ||
-        "Preview failed"
-      );
+      // setError(
+      //     err.response ? .data ? .message ||
+      //     "Preview failed"
+      // );
+
+      setError(err.response?.data?.message || "Preview Failed");
     }
   };
 
   return (
     <div>
+      <button onClick={preview}>Preview </button>
 
-      <button onClick={preview}>
-        Preview
-      </button>
-
-      {error && (
-        <p className="error">{error}</p>
-      )}
+      {error && <p className="error"> {error} </p>}
 
       {subject && (
         <h3>
-          <b>Subject:</b> {subject}
+          <b> Subject: </b> {subject}{" "}
         </h3>
       )}
 
       {body && (
-        <div
-          className="preview-box"
-          style={{ whiteSpace: "pre-line" }}
-        >
-          <b>Body:</b>
-          <p>{body}</p>
+        <div className="preview-box" style={{ whiteSpace: "pre-line" }}>
+          <b> Body: </b> <p> {body} </p>{" "}
         </div>
       )}
-
     </div>
   );
 }

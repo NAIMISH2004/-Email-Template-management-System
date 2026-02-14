@@ -42,7 +42,7 @@ function App() {
       id: template._id,
       name: template.name,
       subject: template.currentVersion.subject,
-      body: template.currentVersion.body
+      body: template.currentVersion.body,
     });
 
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -50,10 +50,7 @@ function App() {
 
   return (
     <div className="app-container">
-
-      <h1 className="app-title">
-        Email Template Manager
-      </h1>
+      <h1 className="app-title">Email Template Manager</h1>
 
       {/* Form */}
       <div className="card">
@@ -66,32 +63,19 @@ function App() {
 
       {/* List */}
       <div className="card">
-
-        <h2 className="section-title">
-          Saved Templates
-        </h2>
+        <h2 className="section-title">Saved Templates</h2>
 
         {templates.length === 0 && <p>No templates yet</p>}
 
         <ul className="template-list">
           {templates.map((t) => (
-            <li
-              key={t._id}
-              className="template-item"
-            >
+            <li key={t._id} className="template-item">
               <span>{t.name}</span>
 
               <div className="btn-group">
-                <button
-                  onClick={() => setSelectedId(t._id)}
-                >
-                  Preview
-                </button>
+                <button onClick={() => setSelectedId(t._id)}>Preview</button>
 
-                <button
-                  className="btn-secondary"
-                  onClick={() => startEdit(t)}
-                >
+                <button className="btn-secondary" onClick={() => startEdit(t)}>
                   Edit
                 </button>
 
@@ -110,15 +94,11 @@ function App() {
       {/* Preview */}
       {selectedId && (
         <div className="card">
-
-          <h2 className="section-title">
-            Preview
-          </h2>
+          <h2 className="section-title">Preview</h2>
 
           <Preview id={selectedId} />
         </div>
       )}
-
     </div>
   );
 }
